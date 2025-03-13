@@ -688,3 +688,38 @@ input[type="number"]::-webkit-outer-spin-button {
     border: none;
     font-size: 16px;
 }
+
+/* Ajustes generales para móviles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reducimos el padding en móviles */
+        background-size: contain; /* Ajustamos la imagen de fondo */
+    }
+
+    /* Slideshow */
+    header .slideshow {
+        height: 200px; /* Reducimos la altura del slideshow */
+    }
+
+
+    /* Elementos del menú */
+    .menu-container {
+        flex-direction: column; /* Hacemos que los elementos se apilen */
+    }
+
+    .menu-item {
+        flex: 0 0 100%; /* Hacemos que cada ítem ocupe todo el ancho */
+    }
+
+    /* Ajustes del modal */
+    .cart-modal-content {
+        width: 90%; /* Hacemos el modal más angosto */
+        max-height: 70vh; /* Reducimos la altura máxima */
+    }
+
+    /* Ajustes de botones en el modal */
+    .cart-modal-content .quantity-box {
+        justify-content: center; /* Centramos los controles de cantidad */
+    }
+
+}
