@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sbagliato - Pizzería Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="slideshow">
+            <div class="slide active">
+                <img src="images/pesto.jpeg" alt="Pizza 1">
+            </div>
+            <div class="slide">
+                <img src="images/crudo y rucula fondo madera.JPG" alt="Pizza 2">
+            </div>
+            <div class="slide">
+                <img src="images/Pera, Roque, pesto y nuez.jpeg" alt="Pizza 3">
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#menu">Menú</a>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <main>
+        <section id="menu">
+            <h2>Menú</h2>
+            <div class="menu-container">
+                <!-- Producto 1 -->
+                
+                <div class="menu-item">
+                    <img src="images/logoprincipal.PNG" alt="Promo 1">
+                    <div>
+                      <h3>Promo 1</h3>
+                      <p>4 prepizzas de tomate, con queso muzzarella.</p>
+                      <p><strong>Precio:</strong> $15000</p>
+                      <div class="quantity-box">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/logoprincipal.PNG" alt="Promo 2">
+                    <div>
+                      <h3>Promo 2</h3>
+                      <p>2 prepizzas de tomate y 2 prepizzas de fugazzeta con queso muzzarella.</p>
+                      <p><strong>Precio:</strong> $1800</p>
+                      <div class="quantity-box">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    </div>
+                </div>
+                  
+                <div class="menu-item">
+                    <img src="images/logoprincipal.PNG" alt="Promo 3">
+                    <div>
+                      <h3>Promo 3</h3>
+                      <p>4 Pizzas listas para el horno de gustos a eleccion</p>
+                      <p><strong>Precio:</strong> $25000</p>
+                      <div class="quantity-box">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="menu-item">
+                    <img src="images/pesto.jpeg" alt="Pizza Margherita - Pesto">
+                    <div>
+                      <h3>Pizza Margherita - Pesto</h3>
+                      <p>Salsa napolitana, mozzarella, pesto, y queso parmesano.</p>
+                      <p><strong>Precio:</strong> $6000</p>
+                      <div class="quantity-box">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <input type="number" class="quantity-input" value="0" readonly>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="menu-item">
+                    
+                    <img src="images/logoprincipal.PNG" alt="Pizza Fugazzeta">
+                    <div>                        
+                        <h3>Pizza Fugazzeta</h3>
+                        <p>Base de cebolla con oregano y mozzarella.</p>
+                        <p><strong>Precio:</strong> $6000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="menu-item">
+                    <img src="images/cantimpalo.jpeg" alt="Cantimpalo">
+                    <div>
+                        <h3>Pizza de Pepperoni</h3>
+                        <p>Salsa napolitana, mozzarella y pepperoni.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div> 
+
+                <!-- Producto 5 -->
+                <div class="menu-item">
+                    <img src="images/papa y panceta.jpg" alt="Papa y Panceta">
+                    <div>
+                        <h3>Pizza de Papa y Panceta</h3>
+                        <p>Salsa napolitana, mozzarella, panceta y papas al romero.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="menu-item">
+                    <img src="images/champi.jpeg" alt="Champignones">
+                    <div>
+                        <h3>Pizza de Champignones</h3>
+                        <p>Salsa napolitana, mozzarella y champignones salteados.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 7 -->
+                <div class="menu-item">
+                    <img src="images/jamon y morrones.jpeg" alt="Jamon y Morrones">
+                    <div>
+                        <h3>Pizza de Jamon y morrones</h3>
+                        <p>Salsa napolitana, mozzarella, jamon y morrones.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 8 -->
+                <div class="menu-item">
+                    <img src="images/logoprincipal.PNG" alt="Panceta y Champignones">
+                    <div>
+                        <h3>Pizza de Panceta y Champignones</h3>
+                        <p>Salsa napolitana, mozzarella, panceta y champignones.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 9 -->
+                <div class="menu-item">
+                    <img src="images/Roque, pesto y Nuez.jpeg" alt="Roque y nuez">
+                    <div>
+                        <h3>Pizza de Roquefort, Nuez y Miel</h3>
+                        <p>Salsa napolitana, roquefort, nuez y miel.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 10 -->
+                <div class="menu-item">
+                    <img src="images/Pera, Roque, pesto y nuez.jpeg" alt="Roque y Pera">
+                    <div>
+                        <h3>Pizza de Roquefort, Pera, Nuez y Miel</h3>
+                        <p>Salsa napolitana, roquefort, pera, nuez y miel.</p>
+                        <p><strong>Precio:</strong> $7000</p>
+                        <div class="quantity-box">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <input type="number" class="quantity-input" value="0" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros">
+            <h2>Sobre Nosotros</h2>
+            <p>En Sbagliato, ofrecemos pizzas napolitanas auténticas para disfrutar en casa. Utilizamos ingredientes frescos y técnicas tradicionales de fermentado lento y en frio para producir una masa liviana, mezclando la tradicion italiana con un toque artesanal argentino.</p>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p><strong>Teléfono:</strong> (011) 7204-4728</p>
+            <p><strong>Email:</strong> sbagliatopizza@gmail.com</p>
+            <p><strong>Villa Urquiza, CABA</strong></p>
+            <div class="social-media">
+                <a href="https://www.instagram.com/sbagliato.pizza/" target="_blank">
+                    <img src="images/003-instagram-social-network-logo-of-photo-camera.svg" alt="Instagram">
+                </a>
+                <a href="https://wa.me/5491172044728" target="_blank">
+                    <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+                </a>
+                <a href="mailto:sbagliatopizza@gmail.com">
+                    <img src="images/gmail.png" alt="Email">
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Contenedor del carrito -->
+    <div id="cart-summary">
+        <button onclick="openCart()">
+            <img src="images/carrito.svg" alt="Carrito" width="30" height="30">
+            Ver tu pedido $<span id="cart-total">0</span>
+        </button>
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="cart-modal" class="cart-modal hidden">
+        <div class="cart-modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Tu Pedido</h2>
+
+            <!-- Lista de productos -->
+            <ul id="cart-items"></ul>
+
+            <!-- Total -->
+            <div class="cart-total-section">
+                <p>Total:</p>
+                <p>$<span id="cart-modal-total">0</span></p>
+            </div>
+
+            <!-- Formulario de orden -->
+            <form id="order-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+
+                <!-- Método de entrega -->
+                <div id="delivery-section" class="delivery-section">
+                    <p>Método de entrega:</p>
+                    <div id="delivery-option" class="delivery-options">
+                        <label><input type="radio" name="method" value="delivery" checked> Entrega a Convenir</label>
+                        <label><input type="radio" name="method" value="pickup"> Retiro</label>
+                    </div>
+                </div>
+
+                <!-- Comentarios -->
+                <label for="comments">Comentarios:</label>
+                <textarea id="comments"></textarea>
+            </form>
+
+            <!-- Botón de envío -->
+            <button class="send-button" onclick="sendOrderToWhatsApp()">Enviar Pedido</button>
+
+        </div>
+    </div>
+        <!-- Sección de Contacto -->
+
+    <footer>
+        <p>&copy; 2025 Sbagliato. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

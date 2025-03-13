@@ -1,0 +1,690 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: medium;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    /* Aplica el fondo a todo el cuerpo de la página */
+    background-image: url('images/background.png'); /* Cambia esta ruta por la de tu imagen */
+    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat:repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Asegura que cubra toda la ventana */
+  }
+
+header .slideshow {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+header .slideshow .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+header .slideshow .slide.active {
+    opacity: 1;
+}
+
+header .slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header .slideshow .prev,
+header .slideshow .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 0, 0, 0.7); /* Botones rojos */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+header .slideshow .prev:hover,
+header .slideshow .next:hover {
+    background-color: #ff6666; /* Rojo claro */
+}
+
+header .slideshow .prev {
+    left: 10px;
+}
+
+header .slideshow .next {
+    right: 10px;
+}
+
+nav {
+    background-color: #ff0000; /* Fondo rojo */
+    padding: 10px 20px;
+    display: flex; /* Flexbox para organizar enlaces */
+    justify-content: center; /* Centra todos los enlaces horizontalmente */
+    gap: 100px; /* Ajusta el espacio entre enlaces */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff; /* Texto blanco */
+    font-weight: bold;
+    font-size: larger;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcccc; /* Rojo más claro al pasar el mouse */
+}
+
+
+#menu {
+    padding: 40px 20px;
+}
+
+#menu h2 {
+    text-align: center;
+    color: #ff0000; /* Título del menú en rojo */
+    margin-bottom: 20px;
+}
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los elementos */
+    justify-content: center;
+}
+
+.menu-item {
+    flex: 0 0 calc(33.333% - 20px); /* Fuerza a que cada elemento ocupe exactamente 1/3 del ancho */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #ff0000; /* Borde rojo */
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff; /* Fondo blanco */
+    transition: transform 0.3s ease;
+}
+
+.menu-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover img {
+    transform: scale(1.1);
+}
+
+.menu-item div {
+    padding: 10px;
+}
+
+.menu-item h3 {
+    color: #ff0000; /* Título de las pizzas en rojo */
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar horizontalmente */
+    gap: 5px;
+    margin-top: 10px; /* Espacio superior */
+}
+
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    max-width: 40px;
+    max-height: fit-content;
+}
+
+
+/* Modal */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;  /* Inicialmente oculto */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal Content */
+.cart-modal-content {
+    background-color: white;
+    padding: 20px;
+    max-height: 80vh; /* Limitar la altura del modal */
+    width: 50%;
+    overflow-y: auto;  /* Activar el scroll solo cuando sea necesario */
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Alinear la cantidad a la derecha en el modal */
+.cart-modal-content .quantity-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  /* Alinea a la derecha */
+    gap: 10px;
+     /* Permite que se expanda ocupando el espacio disponible */
+}
+
+
+/* Ajuste en los botones de cantidad dentro del modal */
+.cart-modal-content .quantity-btn {
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Agregar estilo a la cantidad */
+.cart-modal-content .quantity-input {
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Agregar el botón de agregar al carrito, manteniendo la alineación */
+.cart-modal-content .add-to-cart {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-end; /* Alinear el botón de agregar al carrito a la derecha */
+}
+
+/* Close button */
+.cart-modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Botón de cerrar */
+.cart-modal .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Encabezado */
+.cart-modal h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Lista de productos */
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+#cart-items li {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Asegura alineación correcta */
+    font-weight: bold;
+}
+
+/* Total - Fondo gris */
+.cart-total-section {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs de nombre y comentarios (corregidos dentro del modal) */
+.cart-modal input,
+.cart-modal textarea {
+    width: calc(100% - 30px); /* Para que no se desborde */
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid #ccc;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #f8f8f8;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn,
+.remove-btn {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.quantity-btn:hover,
+.remove-btn:hover {
+    background-color: #e2e2e2;
+}
+
+.quantity-btn:active,
+.remove-btn:active {
+    background-color: #d1d1d1;
+}
+
+.remove-btn {
+    font-size: 20px;
+    color: #ff4d4d; /* Rojo para la X */
+    display: none; /* Por defecto no mostrar la X */
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Mostrar la X cuando la cantidad es 0 */
+.quantity-box .remove-btn {
+    display: inline-block;
+}
+
+
+/* Botón de envío */
+.send-button {
+    background-color:  #34cc34;
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.send-button::before {
+    content: "";
+    background-image: url('images/whatsapp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;  /* Ajusta el tamaño */
+    height: 30px; /* Ajusta el tamaño */
+    display: inline-block;
+    font-size: 18px;
+}
+
+
+/* Cuando el modal está visible */
+.cart-modal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+#delivery-option{
+    display: flex;
+    gap: 20px ;
+}
+
+.delivery-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+
+/* Estilo del label */
+.delivery-options label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    gap: 8px; /* Espacio entre el radio y el texto */
+}
+
+/* Estilo del input radio */
+.delivery-options input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff5733; /* Color del radio button en navegadores modernos */
+    cursor: pointer;
+    align-items: center;
+    vertical-align: middle;
+}
+
+
+#cart-summary {
+    position: fixed;
+    bottom: 20px;  /* Ubicado en la parte inferior */
+    left: 50%;  /* Centrado horizontalmente */
+    transform: translateX(-50%);  /* Ajuste exacto al centro */
+    background: #ff5733; /* Color llamativo */
+    color: white;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Siempre sobre otros elementos */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 8px; /* Espaciado entre icono y texto (opcional) */
+    text-align: center; 
+}
+
+#cart-summary button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 8px; /* Espaciado entre icono y texto (opcional) */
+    text-align: center;
+}
+
+#cart-summary:hover {
+    background: #e04e2f; /* Cambio de color al pasar el mouse */
+}
+#nosotros h2 {
+    text-align: center; /* Centrar el título */
+    font-size: 2rem; /* Tamaño del título */
+    margin-bottom: 10px;
+}
+
+#nosotros p {
+    font-size: 1.1rem; /* Aumentar tamaño de letra */
+    line-height: 1.8; /* Espaciado entre líneas */
+    color: #333; /* Color del texto */
+}
+
+#nosotros {
+    padding: 20px 20px;
+    background-color: #fff5f5; /* Rosa muy claro */
+    border: 1px solid #ffcccc; /* Borde en rojo claro */
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#contacto {
+    padding: 20px 20px;
+    background-color: #fff5f5;
+    border: 1px solid #ffcccc;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .contacto-section {
+        padding: 2rem;
+        background-color: #f9f9f9;
+    }
+    
+    .contacto-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    
+    .contact-form {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    
+    .contact-form .submit-button {
+        background-color: #ff5e57;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .contact-form .submit-button:hover {
+        background-color: #e04e49;
+    }
+    
+    .contact-info {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .contact-info p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .social-media {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .social-media a img {
+        width: 40px;
+        height: 40px;
+        transition: transform 0.3s ease;
+    }
+    
+    .social-media a img:hover {
+        transform: scale(1.1);
+    }
+    }
+
+
+footer {
+    text-align: right;
+    background-color: #ff0000; /* Fondo rojo */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-media img {
+    margin: 0 10px;
+    width: 30px;
+}
+
+@media (max-width: 768px) {
+    .menu-item {
+        flex: 1 1 calc(50% - 20px); /* 2 elementos por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        flex: 1 1 100%; /* 1 elemento por fila en pantallas pequeñas */
+    }
+}
+
+
+.menu-item .order-button {
+    display: inline-block; /* Para que se vea como un botón */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #ff0000; /* Fondo rojo */
+    color: #fff; /* Texto blanco */
+    text-decoration: none; /* Eliminar subrayado */
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease; /* Transición para hover */
+}
+
+.menu-item .order-button:hover {
+    background-color: #ff6666; /* Rojo más claro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+}
+
+.menu-item .order-button:active {
+    background-color: #cc0000; /* Rojo más oscuro al hacer clic */
+    transform: scale(1.05); /* Reduce un poco el zoom al clic */
+}
+
+.menu-item .order-button:focus {
+    outline: 2px solid #ffcccc; /* Contorno suave en foco */
+}
+
+/* Oculta los botones internos de incremento/decremento en el input number */
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Otros navegadores */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Alinea el control de cantidad y el precio a la derecha */
+.cantidad-precio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinea todo hacia la derecha */
+    gap: 10px; /* Espacio entre el control de cantidad y el precio */
+}
+
+/* Agrupa los botones y el input para que parezcan un solo elemento */
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Estiliza los botones "+" y "-" */
+.cantidad-control button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Asegura que el input sea pequeño y sin bordes extra */
+.cantidad-control input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+}
