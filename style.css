@@ -702,10 +702,6 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 
 
-    /* Elementos del menú */
-    .menu-container {
-        flex-direction: column; /* Hacemos que los elementos se apilen */
-    }
 
     .menu-item {
         flex: 0 0 100%; /* Hacemos que cada ítem ocupe todo el ancho */
