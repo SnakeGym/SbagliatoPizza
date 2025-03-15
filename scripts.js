@@ -101,8 +101,9 @@ function updateCartSummary() {
         total += price * quantity;
     }
 
-    cartTotal.textContent = total.toFixed(2);
+    cartTotal.textContent = total.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
+
 
 function sendOrderToWhatsApp() {
     let name = document.getElementById("name").value.trim();

@@ -451,6 +451,7 @@ nav a:hover {
 
 #cart-summary button {
     background: none;
+    white-space: nowrap;
     border: none;
     color: white;
     font-size: 18px;
