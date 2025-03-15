@@ -161,3 +161,14 @@ function removeFromCart(itemName) {
     openCart();
     updateCartSummary();
 }
+
+function toggleAddress() {
+    const deliveryOption = document.querySelector('input[name="method"]:checked').value;
+    const addressSection = document.getElementById("address-section");
+
+    if (deliveryOption === "delivery") {
+        addressSection.classList.remove("hidden");
+    } else {
+        addressSection.classList.add("hidden");
+    }
+}

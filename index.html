@@ -244,48 +244,53 @@
             Ver tu pedido $<span id="cart-total">0</span>
         </button>
     </div>
-
     <!-- Modal del carrito -->
     <div id="cart-modal" class="cart-modal hidden">
         <div class="cart-modal-content">
             <span class="close" onclick="closeCart()">&times;</span>
             <h2>Tu Pedido</h2>
 
-            <!-- Lista de productos -->
-            <ul id="cart-items"></ul>
+        <!-- Lista de productos -->
+           <ul id="cart-items"></ul>
 
-            <!-- Total -->
+        <!-- Total -->
             <div class="cart-total-section">
                 <p>Total:</p>
-                <p>$<span id="cart-modal-total">0</span></p>
+             <p>$<span id="cart-modal-total">0</span></p>
             </div>
 
-            <!-- Formulario de orden -->
+        <!-- Formulario de orden -->
             <form id="order-form">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" required>
 
-                <!-- Método de entrega -->
+            <!-- Método de entrega -->
                 <div id="delivery-section" class="delivery-section">
-                    <p><strong>Método de entrega: </strong></p>
-                    <p>Hacemos envios sin cargo a Villa Urquiza, Belgrano, Parque Chas y Villa Ortuzar, tambien podes retirar por La Pampa 4836. Consulta por otras zonas de envios.
-                    </p>
+                 <p><strong>Método de entrega: </strong></p>
+                    <p>Hacemos envíos sin cargo a Villa Urquiza, Belgrano, Parque Chas y Villa Ortuzar. También podes retirar por La Pampa 4836. Consulta por otras zonas de entrega.</p>
                     <div id="delivery-option" class="delivery-options">
-                        <label><input type="radio" name="method" value="delivery" checked> Delivery </label>
-                        <label><input type="radio" name="method" value="pickup"> Pick up</label>
+                        <label><input type="radio" name="method" value="delivery" onchange="toggleAddress()"> Delivery </label>
+                        <label><input type="radio" name="method" value="pickup" checked onchange="toggleAddress()"> Pick up</label>
                     </div>
                 </div>
 
-                <!-- Comentarios -->
+            <!-- 📍 Dirección (Oculta por defecto) -->
+                <div id="address-section" class="hidden">
+                    <label for="address">Dirección:</label>
+                    <input type="text" id="address" placeholder="Ingrese su dirección">
+                </div>
+
+            <!-- Comentarios -->
                 <label for="comments">Comentarios:</label>
                 <textarea id="comments"></textarea>
             </form>
 
-            <!-- Botón de envío -->
+        <!-- Botón de envío -->
             <button class="send-button" onclick="sendOrderToWhatsApp()">Enviar Pedido</button>
-
         </div>
     </div>
+    <!-- Modal del carrito -->
+    
         <!-- Sección de Contacto -->
 
     <footer>
